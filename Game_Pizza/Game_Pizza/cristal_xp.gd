@@ -3,6 +3,7 @@ extends Area2D
 var entrou = false
 var valor_xp = 1
 
+
 func  _physics_process(delta):
 	if Global.pausar_tudo == true:
 		queue_free()

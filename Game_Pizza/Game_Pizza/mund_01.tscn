@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://mund_01.gd" id="1_qiie2"]
 [ext_resource type="PackedScene" uid="uid://cyod0hegwbhf5" path="res://player.tscn" id="2_4xj8o"]
 [ext_resource type="PackedScene" uid="uid://r3m015r0hlkg" path="res://spawn_inimigo.tscn" id="3_r8biu"]
-[ext_resource type="PackedScene" uid="uid://c0xkbbik0prkv" path="res://area_choque.tscn" id="4_au1u5"]
+[ext_resource type="PackedScene" uid="uid://cdyi77y4eh3vv" path="res://area_choque.tscn" id="4_au1u5"]
 [ext_resource type="Texture2D" uid="uid://f7fs6w8gnkm3" path="res://minhaArte/bg.png" id="5_4iftm"]
 [ext_resource type="Texture2D" uid="uid://byauo45in62tv" path="res://tf_jungle/tf_jungle_tileset.png" id="8_qgwpe"]
 [ext_resource type="PackedScene" uid="uid://j18gmax35lve" path="res://hud.tscn" id="9_3rny1"]

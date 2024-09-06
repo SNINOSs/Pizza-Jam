@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://caecro5svmp3p"]
 
 [sub_resource type="GDScript" id="GDScript_1c832"]
-script/source = "extends Control
+script/source = "extends CanvasLayer
 
 var foi = 0
 var direita = 0
 func _ready():
-	visible = true
-	Global.pausar_tudo = true
+	visible = false
+	Global.pausar_tudo = false
 	direita = int(randf_range(1, 10))
 func _process(delta):
 	if Global.nivel == 1 and foi == 0:
@@ -95,13 +95,10 @@ func _on_button_c_1_pressed():
 
 
 func _on_button_c_2_pressed():
-	Global.habilitar_choque = false
-	if Global.habilitar_choque == false:
-		Global.areachoque_scaleX += 1
-		Global.areachoque_scaleY += 1
 	visible = false
 	Global.pausar_tudo = false
 	Global.numero_inimigos = 0
+
 
 
 func _on_button_c_3_pressed():
@@ -122,39 +119,34 @@ func _on_button_4_pressed():
 		Global.numero_inimigos = 0
 "
 
-[node name="Cartas_1" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Cartas_1" type="CanvasLayer"]
 script = SubResource("GDScript_1c832")
 
 [node name="fundo" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 900.0
-offset_bottom = 1100.0
+offset_left = -4.0
+offset_top = 1.0
+offset_right = 1280.0
+offset_bottom = 721.0
 color = Color(0, 0, 0, 0.34902)
 
 [node name="carta1" type="ColorRect" parent="."]
-layout_mode = 0
-offset_top = 309.0
-offset_right = 250.0
-offset_bottom = 709.0
+offset_left = 36.0
+offset_top = 273.0
+offset_right = 286.0
+offset_bottom = 523.0
 
 [node name="Button_c1" type="Button" parent="carta1"]
 layout_mode = 0
 offset_right = 250.0
-offset_bottom = 400.0
+offset_bottom = 250.0
 
 [node name="Label" type="Label" parent="carta1"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 52.0
-offset_right = 234.0
-offset_bottom = 265.0
-theme_override_font_sizes/font_size = 50
+offset_left = -46.0
+offset_top = 8.0
+offset_right = 175.0
+offset_bottom = 221.0
+theme_override_font_sizes/font_size = 20
 text = "Cadência 
 do
 tiro
@@ -164,84 +156,80 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="carta1"]
 layout_mode = 0
-offset_left = 65.0
-offset_top = 287.0
-offset_right = 166.0
-offset_bottom = 356.0
+offset_left = 126.0
+offset_top = 95.0
+offset_right = 227.0
+offset_bottom = 164.0
 theme_override_font_sizes/font_size = 50
 text = "- 0.1
 "
 
 [node name="carta2" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 325.0
-offset_top = 309.0
-offset_right = 575.0
-offset_bottom = 709.0
+offset_left = 318.0
+offset_top = 273.0
+offset_right = 568.0
+offset_bottom = 523.0
 color = Color(0.0901961, 0, 0.917647, 1)
 
 [node name="Button_c2" type="Button" parent="carta2"]
 layout_mode = 0
 offset_right = 250.0
-offset_bottom = 400.0
+offset_bottom = 250.0
 
 [node name="Label" type="Label" parent="carta2"]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 108.0
-offset_right = 188.0
-offset_bottom = 249.0
-theme_override_font_sizes/font_size = 50
-text = "Dano
-area"
+offset_left = 23.0
+offset_top = 89.0
+offset_right = 152.0
+offset_bottom = 230.0
+theme_override_font_sizes/font_size = 20
+text = "??"
 
 [node name="Label2" type="Label" parent="carta2"]
 layout_mode = 0
-offset_left = 88.0
-offset_top = 290.0
-offset_right = 159.0
-offset_bottom = 359.0
+offset_left = 133.0
+offset_top = 91.0
+offset_right = 204.0
+offset_bottom = 160.0
 theme_override_font_sizes/font_size = 50
 text = "+ 1"
 
 [node name="carta3" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 650.0
-offset_top = 309.0
-offset_right = 900.0
-offset_bottom = 709.0
+offset_left = 600.0
+offset_top = 273.0
+offset_right = 850.0
+offset_bottom = 523.0
 color = Color(0.807843, 0, 0, 1)
 
 [node name="Button_c3" type="Button" parent="carta3"]
 layout_mode = 0
 offset_right = 250.0
-offset_bottom = 400.0
+offset_bottom = 250.0
 
 [node name="Label" type="Label" parent="carta3"]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 102.0
-offset_right = 184.0
-offset_bottom = 243.0
-theme_override_font_sizes/font_size = 50
+offset_left = 7.0
+offset_top = 54.0
+offset_right = 123.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 20
 text = "VIDA
 MAX"
 
 [node name="Label2" type="Label" parent="carta3"]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 281.0
-offset_right = 183.0
-offset_bottom = 350.0
+offset_left = 139.0
+offset_top = 99.0
+offset_right = 239.0
+offset_bottom = 168.0
 theme_override_font_sizes/font_size = 50
 text = "+ 20"
 
 [node name="carta4" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 650.0
-offset_top = 309.0
-offset_right = 900.0
-offset_bottom = 709.0
+offset_left = 600.0
+offset_top = 273.0
+offset_right = 850.0
+offset_bottom = 523.0
 color = Color(0, 0.486275, 0.533333, 1)
 
 [node name="Button4" type="Button" parent="carta4"]
@@ -254,20 +242,20 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="carta4"]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 102.0
-offset_right = 184.0
-offset_bottom = 243.0
-theme_override_font_sizes/font_size = 50
+offset_left = 27.0
+offset_top = 86.0
+offset_right = 143.0
+offset_bottom = 227.0
+theme_override_font_sizes/font_size = 20
 text = "Arma
 Giro"
 
 [node name="Label2" type="Label" parent="carta4"]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 281.0
-offset_right = 183.0
-offset_bottom = 350.0
+offset_left = 128.0
+offset_top = 108.0
+offset_right = 228.0
+offset_bottom = 177.0
 theme_override_font_sizes/font_size = 50
 text = "+ 1
 "

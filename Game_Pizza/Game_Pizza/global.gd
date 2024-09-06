@@ -9,9 +9,6 @@ var mortes_inimigos = 0
 
 var pausar_tudo = false
 
-var areachoque_scaleX = 2
-var areachoque_scaleY = 2
-var habilitar_choque = true
 
 var player_vida = 20
 var player_vida_max = 20
@@ -24,7 +21,7 @@ var xp_max = 10
 var nivel = 0
 
 var arma_giro_nivel = 0
-
+var iniciar_jogo = false
 
 func _physics_process(delta):
 	if xp >= xp_max:
