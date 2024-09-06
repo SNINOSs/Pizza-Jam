@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://8yvh3l1g5677"]
+
+[ext_resource type="Script" path="res://arma_giro.gd" id="1_u00sf"]
+[ext_resource type="Texture2D" uid="uid://d4akf0l8wk7k8" path="res://minhaArte/arma_giro.png" id="2_tmhff"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wu6c"]
+radius = 32.1403
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhv3a"]
+radius = 32.0156
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twea7"]
+radius = 32.0156
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pt06i"]
+radius = 32.0
+
+[node name="arma_giro" type="Area2D" groups=["ArmaGiro"]]
+collision_mask = 4
+script = ExtResource("1_u00sf")
+
+[node name="direita" type="Sprite2D" parent="."]
+texture = ExtResource("2_tmhff")
+offset = Vector2(150, 0)
+
+[node name="Collision_direita" type="CollisionShape2D" parent="."]
+position = Vector2(150, 0)
+shape = SubResource("CircleShape2D_5wu6c")
+
+[node name="esquerda" type="Sprite2D" parent="."]
+texture = ExtResource("2_tmhff")
+offset = Vector2(-150, 0)
+
+[node name="Collision_esquerda" type="CollisionShape2D" parent="."]
+position = Vector2(-150, 0)
+shape = SubResource("CircleShape2D_bhv3a")
+
+[node name="cima" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_tmhff")
+offset = Vector2(-150, 0)
+
+[node name="Collision_cima" type="CollisionShape2D" parent="."]
+position = Vector2(0, -150)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_twea7")
+
+[node name="baixo" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_tmhff")
+offset = Vector2(150, 0)
+
+[node name="Collision_baixo" type="CollisionShape2D" parent="."]
+position = Vector2(0, 150)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_pt06i")

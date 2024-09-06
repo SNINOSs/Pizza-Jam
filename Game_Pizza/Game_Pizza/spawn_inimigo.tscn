@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://r3m015r0hlkg"]
+
+[ext_resource type="Script" path="res://Area2D.gd" id="1_qqwur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0vno"]
+size = Vector2(24, 617)
+
+[node name="spawn_inimigo" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_qqwur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1.5)
+shape = SubResource("RectangleShape2D_v0vno")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_v0vno")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1.5)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_v0vno")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1.5)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_v0vno")
+
+[node name="Timer1" type="Timer" parent="."]
+
+[node name="1" type="Marker2D" parent="."]
+position = Vector2(0, -300)
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="2" type="Marker2D" parent="."]
+position = Vector2(0, 300)
+
+[node name="Timer3" type="Timer" parent="."]
+
+[node name="3" type="Marker2D" parent="."]
+position = Vector2(-300, 0)
+
+[node name="Timer4" type="Timer" parent="."]
+
+[node name="4" type="Marker2D" parent="."]
+position = Vector2(300, 0)
+
+[node name="Timer5" type="Timer" parent="."]
+
+[node name="5" type="Marker2D" parent="."]
+position = Vector2(-175, -175)
+
+[node name="Timer6" type="Timer" parent="."]
+
+[node name="6" type="Marker2D" parent="."]
+position = Vector2(-175, 175)
+
+[node name="Timer7" type="Timer" parent="."]
+
+[node name="7" type="Marker2D" parent="."]
+position = Vector2(175, -175)
+
+[node name="Timer8" type="Timer" parent="."]
+
+[node name="8" type="Marker2D" parent="."]
+position = Vector2(175, 175)
+
+[connection signal="timeout" from="Timer1" to="." method="_on_timer_1_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Timer4" to="." method="_on_timer_4_timeout"]
+[connection signal="timeout" from="Timer5" to="." method="_on_timer_5_timeout"]
+[connection signal="timeout" from="Timer6" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Timer6" to="." method="_on_timer_6_timeout"]
+[connection signal="timeout" from="Timer7" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Timer7" to="." method="_on_timer_7_timeout"]
+[connection signal="timeout" from="Timer8" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Timer8" to="." method="_on_timer_8_timeout"]

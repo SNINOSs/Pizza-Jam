@@ -1,0 +1,278 @@
+[gd_scene load_steps=2 format=3 uid="uid://caecro5svmp3p"]
+
+[sub_resource type="GDScript" id="GDScript_1c832"]
+script/source = "extends Control
+
+var foi = 0
+var direita = 0
+func _ready():
+	visible = true
+	Global.pausar_tudo = true
+	direita = int(randf_range(1, 10))
+func _process(delta):
+	if Global.nivel == 1 and foi == 0:
+		visible = true
+		Global.pausar_tudo = true
+		direita = int(randf_range(1, 10))
+		foi = 1
+		
+	if Global.nivel == 2 and foi == 1:
+		visible = true
+		Global.pausar_tudo = true
+		direita = int(randf_range(1, 10))
+		foi = 2
+		
+	if Global.nivel == 3 and foi == 2:
+		visible = true
+		Global.pausar_tudo = true
+		direita = int(randf_range(1, 10))
+		foi = 3
+		
+	if Global.nivel == 4 and foi == 3:
+		visible = true
+		Global.pausar_tudo = true
+		direita = int(randf_range(1, 10))
+		foi = 4
+		
+	if Global.nivel == 5 and foi == 4:
+		visible = true
+		Global.pausar_tudo = true
+		direita = int(randf_range(1, 10))
+		foi = 5
+		
+	if Global.nivel == 6 and foi == 5:
+		visible = true
+		Global.pausar_tudo = true
+		direita = int(randf_range(1, 10))
+		foi = 6
+		
+	if Global.nivel == 7 and foi == 6:
+		visible = true
+		Global.pausar_tudo = true
+		direita = int(randf_range(1, 10))
+		foi = 7
+		
+	if Global.nivel == 8 and foi == 7:
+		visible = true
+		Global.pausar_tudo = true
+		direita = int(randf_range(1, 10))
+		foi = 8
+		
+	if Global.nivel == 9 and foi == 8:
+		visible = true
+		Global.pausar_tudo = true
+		direita = int(randf_range(1, 10))
+		foi = 9
+		
+	if Global.nivel == 10 and foi == 9:
+		visible = true
+		Global.pausar_tudo = true
+		direita = int(randf_range(1, 10))
+		foi = 10
+		
+	
+	
+	if direita <= 4:
+		$carta3.visible = true
+		$carta4.visible = false
+		$carta3/Button_c3.disabled = false
+		$carta4/Button4.disabled = true
+	if direita >= 5:
+		$carta3.visible = false
+		$carta4.visible = true
+		$carta3/Button_c3.disabled = true
+		$carta4/Button4.disabled = false
+	
+	
+func _on_button_c_1_pressed():
+	Global.tempo_tiro = null
+	visible = false
+	Global.pausar_tudo = false
+	Global.numero_inimigos = 0
+
+
+
+
+
+func _on_button_c_2_pressed():
+	Global.habilitar_choque = false
+	if Global.habilitar_choque == false:
+		Global.areachoque_scaleX += 1
+		Global.areachoque_scaleY += 1
+	visible = false
+	Global.pausar_tudo = false
+	Global.numero_inimigos = 0
+
+
+func _on_button_c_3_pressed():
+	if direita <= 4:
+		Global.player_vida_max += 20
+		Global.player_vida += 20
+		visible = false
+		Global.pausar_tudo = false
+		Global.numero_inimigos = 0
+
+
+
+func _on_button_4_pressed():
+	if direita >= 5:
+		Global.arma_giro_nivel += 1
+		visible = false
+		Global.pausar_tudo = false
+		Global.numero_inimigos = 0
+"
+
+[node name="Cartas_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_1c832")
+
+[node name="fundo" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 1100.0
+color = Color(0, 0, 0, 0.34902)
+
+[node name="carta1" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 309.0
+offset_right = 250.0
+offset_bottom = 709.0
+
+[node name="Button_c1" type="Button" parent="carta1"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 400.0
+
+[node name="Label" type="Label" parent="carta1"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 52.0
+offset_right = 234.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 50
+text = "Cadência 
+do
+tiro
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="carta1"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 287.0
+offset_right = 166.0
+offset_bottom = 356.0
+theme_override_font_sizes/font_size = 50
+text = "- 0.1
+"
+
+[node name="carta2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 309.0
+offset_right = 575.0
+offset_bottom = 709.0
+color = Color(0.0901961, 0, 0.917647, 1)
+
+[node name="Button_c2" type="Button" parent="carta2"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 400.0
+
+[node name="Label" type="Label" parent="carta2"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 108.0
+offset_right = 188.0
+offset_bottom = 249.0
+theme_override_font_sizes/font_size = 50
+text = "Dano
+area"
+
+[node name="Label2" type="Label" parent="carta2"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 290.0
+offset_right = 159.0
+offset_bottom = 359.0
+theme_override_font_sizes/font_size = 50
+text = "+ 1"
+
+[node name="carta3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 309.0
+offset_right = 900.0
+offset_bottom = 709.0
+color = Color(0.807843, 0, 0, 1)
+
+[node name="Button_c3" type="Button" parent="carta3"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 400.0
+
+[node name="Label" type="Label" parent="carta3"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 102.0
+offset_right = 184.0
+offset_bottom = 243.0
+theme_override_font_sizes/font_size = 50
+text = "VIDA
+MAX"
+
+[node name="Label2" type="Label" parent="carta3"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 281.0
+offset_right = 183.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 50
+text = "+ 20"
+
+[node name="carta4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 309.0
+offset_right = 900.0
+offset_bottom = 709.0
+color = Color(0, 0.486275, 0.533333, 1)
+
+[node name="Button4" type="Button" parent="carta4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="carta4"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 102.0
+offset_right = 184.0
+offset_bottom = 243.0
+theme_override_font_sizes/font_size = 50
+text = "Arma
+Giro"
+
+[node name="Label2" type="Label" parent="carta4"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 281.0
+offset_right = 183.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 50
+text = "+ 1
+"
+
+[connection signal="pressed" from="carta1/Button_c1" to="." method="_on_button_c_1_pressed"]
+[connection signal="pressed" from="carta2/Button_c2" to="." method="_on_button_c_2_pressed"]
+[connection signal="pressed" from="carta3/Button_c3" to="." method="_on_button_c_3_pressed"]
+[connection signal="pressed" from="carta4/Button4" to="." method="_on_button_4_pressed"]
