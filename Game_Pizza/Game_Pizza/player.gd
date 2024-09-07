@@ -49,8 +49,10 @@ func _physics_process(delta):
 			print("morreuie")
 			queue_free()
 			get_tree().reload_current_scene()
-		
-	move_and_slide()
+		move_and_slide()
+	else :
+		anim.play("idle")
+	
 func estado_parado():
 	anim.play("idle")
 	if velocity.x > 0 or velocity.x < 0 or velocity.y > 0 or velocity.y < 0:

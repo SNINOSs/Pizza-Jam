@@ -21,23 +21,22 @@ texture_progress = ExtResource("3_8l3ln")
 texture_progress_offset = Vector2(1, 1)
 script = ExtResource("4_xai5w")
 
-[node name="level_nome" type="Label" parent="."]
-offset_left = 201.0
-offset_top = 98.0
-offset_right = 281.0
-offset_bottom = 140.0
+[node name="VBoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -281.0
+offset_right = -1170.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="level_nome" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Level"
-
-[node name="level_numero" type="Label" parent="."]
-offset_left = 280.0
-offset_top = 98.0
-offset_right = 317.0
-offset_bottom = 140.0
-theme_override_font_sizes/font_size = 30
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="TextureProgressBar_PLAYER" type="TextureProgressBar" parent="."]
 offset_left = 14.0
@@ -50,56 +49,42 @@ texture_progress = ExtResource("3_8l3ln")
 texture_progress_offset = Vector2(1, 1)
 script = ExtResource("6_o7qw4")
 
-[node name="vida_value" type="Label" parent="."]
-offset_left = 229.0
-offset_top = 61.0
-offset_right = 264.0
-offset_bottom = 89.0
-theme_override_font_sizes/font_size = 20
-text = "100"
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_left = 151.0
+offset_top = 52.0
+offset_right = 241.0
+offset_bottom = 94.0
 
-[node name="MEIO" type="Label" parent="."]
-offset_left = 265.0
-offset_top = 54.0
-offset_right = 305.0
-offset_bottom = 96.0
-theme_override_font_sizes/font_size = 30
-text = "/"
-
-[node name="vida_valuemax" type="Label" parent="."]
-offset_left = 277.0
-offset_top = 61.0
-offset_right = 317.0
-offset_bottom = 89.0
+[node name="vida_nome" type="Label" parent="BoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "100
-"
+text = "20/20"
 
 [node name="Cartas_1" parent="." instance=ExtResource("5_7pduy")]
 visible = false
 
-[node name="CONTADOR" type="Label" parent="."]
-offset_left = 696.0
-offset_top = 104.0
-offset_right = 754.0
-offset_bottom = 173.0
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+offset_left = 551.0
+offset_top = 55.0
+offset_right = 704.0
+offset_bottom = 124.0
+vertical = true
 
-[node name="wave_nome" type="Label" parent="."]
-offset_left = 598.0
-offset_top = 46.0
-offset_right = 746.0
-offset_bottom = 115.0
+[node name="wave_nome" type="Label" parent="BoxContainer2"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "ONDA"
 
-[node name="wave_numero" type="Label" parent="."]
-offset_left = 755.0
-offset_top = 46.0
-offset_right = 813.0
-offset_bottom = 115.0
+[node name="CONTADOR" type="Label" parent="BoxContainer2"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="coin" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 169.0
+offset_right = 125.0
+offset_bottom = 218.0
+theme_override_font_sizes/font_size = 35
+text = "R$ 000"

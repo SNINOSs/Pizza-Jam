@@ -1,122 +1,106 @@
-[gd_scene load_steps=2 format=3 uid="uid://caecro5svmp3p"]
+[gd_scene load_steps=5 format=3 uid="uid://caecro5svmp3p"]
+
+[ext_resource type="Texture2D" uid="uid://c4dvdxhvadhh0" path="res://icon.svg" id="1_glgik"]
+[ext_resource type="Texture2D" uid="uid://bcc842rruy6tx" path="res://coração.png" id="2_d4057"]
+[ext_resource type="Texture2D" uid="uid://m62dsojdidjl" path="res://arma_giro.png" id="3_wv0lf"]
 
 [sub_resource type="GDScript" id="GDScript_1c832"]
 script/source = "extends CanvasLayer
 
 var foi = 0
 var direita = 0
+var meio = 0
+var esquerda = 0
 func _ready():
 	visible = false
 	Global.pausar_tudo = false
 	direita = int(randf_range(1, 10))
+	meio = int(randf_range(1, 10))
+	esquerda = int(randf_range(1, 10))
 func _process(delta):
-	if Global.nivel == 1 and foi == 0:
-		visible = true
-		Global.pausar_tudo = true
-		direita = int(randf_range(1, 10))
-		foi = 1
+	visible = Global.visible_cartas
+
 		
-	if Global.nivel == 2 and foi == 1:
-		visible = true
-		Global.pausar_tudo = true
-		direita = int(randf_range(1, 10))
-		foi = 2
-		
-	if Global.nivel == 3 and foi == 2:
-		visible = true
-		Global.pausar_tudo = true
-		direita = int(randf_range(1, 10))
-		foi = 3
-		
-	if Global.nivel == 4 and foi == 3:
-		visible = true
-		Global.pausar_tudo = true
-		direita = int(randf_range(1, 10))
-		foi = 4
-		
-	if Global.nivel == 5 and foi == 4:
-		visible = true
-		Global.pausar_tudo = true
-		direita = int(randf_range(1, 10))
-		foi = 5
-		
-	if Global.nivel == 6 and foi == 5:
-		visible = true
-		Global.pausar_tudo = true
-		direita = int(randf_range(1, 10))
-		foi = 6
-		
-	if Global.nivel == 7 and foi == 6:
-		visible = true
-		Global.pausar_tudo = true
-		direita = int(randf_range(1, 10))
-		foi = 7
-		
-	if Global.nivel == 8 and foi == 7:
-		visible = true
-		Global.pausar_tudo = true
-		direita = int(randf_range(1, 10))
-		foi = 8
-		
-	if Global.nivel == 9 and foi == 8:
-		visible = true
-		Global.pausar_tudo = true
-		direita = int(randf_range(1, 10))
-		foi = 9
-		
-	if Global.nivel == 10 and foi == 9:
-		visible = true
-		Global.pausar_tudo = true
-		direita = int(randf_range(1, 10))
-		foi = 10
 		
 	
 	
 	if direita <= 4:
-		$carta3.visible = true
-		$carta4.visible = false
-		$carta3/Button_c3.disabled = false
-		$carta4/Button4.disabled = true
+		$\"BoxContainer/3\".visible = true
+		$\"BoxContainer/3/Button3\".visible = true
+		$\"BoxContainer/6\".visible = false
+		$\"BoxContainer/6/Button6\".visible = false
 	if direita >= 5:
-		$carta3.visible = false
-		$carta4.visible = true
-		$carta3/Button_c3.disabled = true
-		$carta4/Button4.disabled = false
+		$\"BoxContainer/3\".visible = false
+		$\"BoxContainer/3/Button3\".visible = false
+		$\"BoxContainer/6\".visible = true
+		$\"BoxContainer/6/Button6\".visible = true
+		
+	if meio <= 4:
+		$\"BoxContainer/2\".visible = true
+		$\"BoxContainer/2/Button2\".visible = true
+		$\"BoxContainer/5\".visible = false
+		$\"BoxContainer/5/Button5\".visible = false
+	if meio >= 5:
+		$\"BoxContainer/2\".visible = false
+		$\"BoxContainer/2/Button2\".visible = false
+		$\"BoxContainer/5\".visible = true
+		$\"BoxContainer/5/Button5\".visible = true
+		
+	if esquerda <= 4:
+		$\"BoxContainer/1\".visible = true
+		$\"BoxContainer/1/Button1\".visible = true
+		$\"BoxContainer/4\".visible = false
+		$\"BoxContainer/4/Button4\".visible = false
+	if esquerda >= 5:
+		$\"BoxContainer/1\".visible = false
+		$\"BoxContainer/1/Button1\".visible = false
+		$\"BoxContainer/4\".visible = true
+		$\"BoxContainer/4/Button4\".visible = true
+func _on_button_1_pressed():
+	Global.visible_cartas = false
+	Global.pausar_tudo = false
+	Global.iniciar_jogo = true
+	Global.reset_timer = true
+
+func _on_button_2_pressed():
+	Global.visible_cartas = false
+	Global.pausar_tudo = false
+	Global.iniciar_jogo = true
+	Global.reset_timer = true
+
+
+
+func _on_button_3_pressed():
+	Global.player_vida_max += 20
+	Global.player_vida += 20
+	Global.visible_cartas = false
+	Global.pausar_tudo = false
+	Global.iniciar_jogo = true
+	Global.reset_timer = true
 	
 	
-func _on_button_c_1_pressed():
-	Global.tempo_tiro = null
-	visible = false
-	Global.pausar_tudo = false
-	Global.numero_inimigos = 0
-
-
-
-
-
-func _on_button_c_2_pressed():
-	visible = false
-	Global.pausar_tudo = false
-	Global.numero_inimigos = 0
-
-
-
-func _on_button_c_3_pressed():
-	if direita <= 4:
-		Global.player_vida_max += 20
-		Global.player_vida += 20
-		visible = false
-		Global.pausar_tudo = false
-		Global.numero_inimigos = 0
-
-
-
+	
 func _on_button_4_pressed():
-	if direita >= 5:
-		Global.arma_giro_nivel += 1
-		visible = false
-		Global.pausar_tudo = false
-		Global.numero_inimigos = 0
+	Global.arma_giro_nivel += 1
+	Global.visible_cartas = false
+	Global.pausar_tudo = false
+	Global.iniciar_jogo = true
+	Global.reset_timer = true
+
+
+func _on_button_5_pressed():
+	Global.visible_cartas = false
+	Global.pausar_tudo = false
+	Global.iniciar_jogo = true
+	Global.reset_timer = true
+
+func _on_button_6_pressed():
+	Global.visible_cartas = false
+	Global.pausar_tudo = false
+	Global.iniciar_jogo = true
+	Global.reset_timer = true
+
+
 "
 
 [node name="Cartas_1" type="CanvasLayer"]
@@ -129,138 +113,122 @@ offset_right = 1280.0
 offset_bottom = 721.0
 color = Color(0, 0, 0, 0.34902)
 
-[node name="carta1" type="ColorRect" parent="."]
-offset_left = 36.0
-offset_top = 273.0
-offset_right = 286.0
-offset_bottom = 523.0
-
-[node name="Button_c1" type="Button" parent="carta1"]
-layout_mode = 0
-offset_right = 250.0
-offset_bottom = 250.0
-
-[node name="Label" type="Label" parent="carta1"]
-layout_mode = 0
-offset_left = -46.0
-offset_top = 8.0
-offset_right = 175.0
-offset_bottom = 221.0
-theme_override_font_sizes/font_size = 20
-text = "Cadência 
-do
-tiro
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="carta1"]
-layout_mode = 0
-offset_left = 126.0
-offset_top = 95.0
-offset_right = 227.0
-offset_bottom = 164.0
-theme_override_font_sizes/font_size = 50
-text = "- 0.1
-"
-
-[node name="carta2" type="ColorRect" parent="."]
-offset_left = 318.0
-offset_top = 273.0
-offset_right = 568.0
-offset_bottom = 523.0
-color = Color(0.0901961, 0, 0.917647, 1)
-
-[node name="Button_c2" type="Button" parent="carta2"]
-layout_mode = 0
-offset_right = 250.0
-offset_bottom = 250.0
-
-[node name="Label" type="Label" parent="carta2"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 89.0
-offset_right = 152.0
-offset_bottom = 230.0
-theme_override_font_sizes/font_size = 20
-text = "??"
-
-[node name="Label2" type="Label" parent="carta2"]
-layout_mode = 0
-offset_left = 133.0
-offset_top = 91.0
-offset_right = 204.0
-offset_bottom = 160.0
-theme_override_font_sizes/font_size = 50
-text = "+ 1"
-
-[node name="carta3" type="ColorRect" parent="."]
-offset_left = 600.0
-offset_top = 273.0
-offset_right = 850.0
-offset_bottom = 523.0
-color = Color(0.807843, 0, 0, 1)
-
-[node name="Button_c3" type="Button" parent="carta3"]
-layout_mode = 0
-offset_right = 250.0
-offset_bottom = 250.0
-
-[node name="Label" type="Label" parent="carta3"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 54.0
-offset_right = 123.0
-offset_bottom = 195.0
-theme_override_font_sizes/font_size = 20
-text = "VIDA
-MAX"
-
-[node name="Label2" type="Label" parent="carta3"]
-layout_mode = 0
-offset_left = 139.0
-offset_top = 99.0
-offset_right = 239.0
-offset_bottom = 168.0
-theme_override_font_sizes/font_size = 50
-text = "+ 20"
-
-[node name="carta4" type="ColorRect" parent="."]
-offset_left = 600.0
-offset_top = 273.0
-offset_right = 850.0
-offset_bottom = 523.0
-color = Color(0, 0.486275, 0.533333, 1)
-
-[node name="Button4" type="Button" parent="carta4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = 51.0
+offset_right = 29.0
+offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 50
 
-[node name="Label" type="Label" parent="carta4"]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 86.0
-offset_right = 143.0
-offset_bottom = 227.0
-theme_override_font_sizes/font_size = 20
-text = "Arma
-Giro"
+[node name="1" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_glgik")
 
-[node name="Label2" type="Label" parent="carta4"]
+[node name="Button1" type="Button" parent="BoxContainer/1"]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 108.0
-offset_right = 228.0
-offset_bottom = 177.0
-theme_override_font_sizes/font_size = 50
-text = "+ 1
+offset_right = 127.0
+offset_bottom = 129.0
+
+[node name="Label" type="Label" parent="BoxContainer/1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1111111"
+
+[node name="2" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_glgik")
+
+[node name="Button2" type="Button" parent="BoxContainer/2"]
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 129.0
+
+[node name="Label" type="Label" parent="BoxContainer/2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "22222222222"
+
+[node name="3" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_d4057")
+
+[node name="Button3" type="Button" parent="BoxContainer/3"]
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 129.0
+flat = true
+
+[node name="Label" type="Label" parent="BoxContainer/3"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 85.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 30
+text = "+20"
+
+[node name="4" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_wv0lf")
+
+[node name="Button4" type="Button" parent="BoxContainer/4"]
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 129.0
+flat = true
+
+[node name="Label" type="Label" parent="BoxContainer/4"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 36.0
+offset_right = 84.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 30
+text = "+1
 "
 
-[connection signal="pressed" from="carta1/Button_c1" to="." method="_on_button_c_1_pressed"]
-[connection signal="pressed" from="carta2/Button_c2" to="." method="_on_button_c_2_pressed"]
-[connection signal="pressed" from="carta3/Button_c3" to="." method="_on_button_c_3_pressed"]
-[connection signal="pressed" from="carta4/Button4" to="." method="_on_button_4_pressed"]
+[node name="5" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_glgik")
+
+[node name="Button5" type="Button" parent="BoxContainer/5"]
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 129.0
+
+[node name="Label" type="Label" parent="BoxContainer/5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "55555555555"
+
+[node name="6" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_glgik")
+
+[node name="Button6" type="Button" parent="BoxContainer/6"]
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 129.0
+
+[node name="Label" type="Label" parent="BoxContainer/6"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "666666666"
+
+[connection signal="pressed" from="BoxContainer/1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="BoxContainer/2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="BoxContainer/3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="BoxContainer/4/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="BoxContainer/5/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="BoxContainer/6/Button6" to="." method="_on_button_6_pressed"]

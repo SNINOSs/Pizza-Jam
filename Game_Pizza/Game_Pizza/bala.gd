@@ -8,8 +8,8 @@ func _physics_process(delta):
 	if Global.pausar_tudo == true:
 		queue_free()
 	position += (Vector2.RIGHT*speed).rotated(rotation) * delta  #tiro ir para direção de sua rotação
-	await get_tree().create_timer(0.5).timeout #intervalo para trocar o sprite 
-	queue_free()
+	look_at(Global.position_inimigo)
+	
 
 
 func _on_body_entered(body):
