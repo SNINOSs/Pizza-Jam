@@ -23,6 +23,7 @@ var iniciar_jogo = false
 
 var visible_cartas = false
 var reset_timer = false
+var wave = 1
 func _physics_process(delta):
 	if xp >= xp_max:
 		nivel += 1
