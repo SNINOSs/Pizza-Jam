@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx1adc8om6c4u"]
+
+[ext_resource type="Script" path="res://bala.gd" id="1_dbyq5"]
+[ext_resource type="Texture2D" uid="uid://chybkk5llk70l" path="res://PistolAmmoSmall.png" id="2_fswwk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bca88"]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qngd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fswwk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 25.0
+}]
+
+[node name="bala" type="Area2D" groups=["tiro"]]
+collision_layer = 128
+collision_mask = 4
+script = ExtResource("1_dbyq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Tiro"]]
+position = Vector2(-1, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bca88")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qngd4")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.312737
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

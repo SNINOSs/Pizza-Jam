@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://caecro5svmp3p"]
+[gd_scene load_steps=3 format=3 uid="uid://caecro5svmp3p"]
 
-[ext_resource type="Texture2D" uid="uid://c4dvdxhvadhh0" path="res://icon.svg" id="1_glgik"]
-[ext_resource type="Texture2D" uid="uid://bcc842rruy6tx" path="res://coração.png" id="2_d4057"]
-[ext_resource type="Texture2D" uid="uid://m62dsojdidjl" path="res://arma_giro.png" id="3_wv0lf"]
+[ext_resource type="Texture2D" uid="uid://3l6rxd7qboe6" path="res://alcance.card.png" id="4_kfsba"]
 
 [sub_resource type="GDScript" id="GDScript_1c832"]
 script/source = "extends CanvasLayer
@@ -100,87 +98,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.180392, 0.180392, 0.180392, 0.988235)
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -592.0
-offset_top = 462.0
-offset_right = 426.0
-offset_bottom = 590.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 50
-
-[node name="1" type="TextureRect" parent="BoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_glgik")
-
-[node name="Label" type="Label" parent="BoxContainer/1"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "1111111"
-
-[node name="2" type="TextureRect" parent="BoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_glgik")
-
-[node name="Label" type="Label" parent="BoxContainer/2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "22222222222"
-
-[node name="3" type="TextureRect" parent="BoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_d4057")
-
-[node name="Label" type="Label" parent="BoxContainer/3"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 40.0
-offset_right = 85.0
-offset_bottom = 82.0
-theme_override_font_sizes/font_size = 30
-text = "+20"
-
-[node name="4" type="TextureRect" parent="BoxContainer"]
-layout_mode = 2
-texture = ExtResource("3_wv0lf")
-
-[node name="Label" type="Label" parent="BoxContainer/4"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 36.0
-offset_right = 84.0
-offset_bottom = 78.0
-theme_override_font_sizes/font_size = 30
-text = "+1
-"
-
-[node name="5" type="TextureRect" parent="BoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_glgik")
-
-[node name="Label" type="Label" parent="BoxContainer/5"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "55555555555"
-
-[node name="6" type="TextureRect" parent="BoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_glgik")
-
-[node name="Label" type="Label" parent="BoxContainer/6"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "666666666"
-
 [node name="retangulo" type="ColorRect" parent="."]
 offset_left = 997.0
 offset_top = 50.0
@@ -205,58 +122,70 @@ offset_right = 924.0
 offset_bottom = 413.0
 
 [node name="carta1" type="ColorRect" parent="cartas"]
+layout_mode = 0
 offset_right = 201.0
 offset_bottom = 282.0
 color = Color(0, 1, 1, 1)
 
 [node name="carta5" type="ColorRect" parent="cartas"]
+layout_mode = 0
 offset_right = 201.0
 offset_bottom = 282.0
 color = Color(0, 0.309804, 0.309804, 1)
 
 [node name="HSeparator" type="HSeparator" parent="cartas"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 4.0
 
 [node name="carta2" type="ColorRect" parent="cartas"]
+layout_mode = 0
 offset_left = 231.0
 offset_right = 432.0
 offset_bottom = 282.0
 color = Color(1, 0, 1, 1)
 
 [node name="carta6" type="ColorRect" parent="cartas"]
+layout_mode = 0
 offset_left = 231.0
 offset_right = 432.0
 offset_bottom = 282.0
 color = Color(0.423529, 0, 0.423529, 1)
 
 [node name="HSeparator2" type="HSeparator" parent="cartas"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 4.0
 
 [node name="carta3" type="ColorRect" parent="cartas"]
+layout_mode = 0
 offset_left = 462.0
 offset_right = 663.0
 offset_bottom = 282.0
 color = Color(1, 1, 0, 1)
 
-[node name="carta7" type="ColorRect" parent="cartas"]
+[node name="carta7" type="TextureRect" parent="cartas"]
+layout_mode = 0
 offset_left = 462.0
 offset_right = 663.0
 offset_bottom = 282.0
-color = Color(0.290196, 0.290196, 0, 1)
+texture = ExtResource("4_kfsba")
+expand_mode = 1
 
 [node name="HSeparator3" type="HSeparator" parent="cartas"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 4.0
 
 [node name="carta4" type="ColorRect" parent="cartas"]
+layout_mode = 0
 offset_left = 693.0
 offset_right = 894.0
 offset_bottom = 282.0
 color = Color(1, 0, 0, 1)
 
 [node name="carta8" type="ColorRect" parent="cartas"]
+layout_mode = 0
 offset_left = 693.0
 offset_right = 894.0
 offset_bottom = 282.0

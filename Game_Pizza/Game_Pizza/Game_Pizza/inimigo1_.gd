@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 20
+var speed = 50
 
 var player_position
 var coin = preload("res://coin.tscn")
@@ -10,6 +10,7 @@ var num = 0
 
 func _ready():
 	num = randf_range(1,10)
+	Global.inimigos += 1
 	
 
 func _process(delta):
@@ -30,18 +31,28 @@ func _process(delta):
 		player_position = Global.position_player
 		
 		if position.distance_to(player_position) > 3:
-			position += (Vector2.RIGHT*speed).rotated(rotation) * delta   
-			look_at(player_position)
+			var dir = position.direction_to(player_position)
+			position += dir * speed * delta
+			if position.x <= player_position.x:
+				$anim1.flip_h = false
+				$anim2.flip_h = false
+			else:
+				$anim1.flip_h = true
+				$anim2.flip_h = true
+			#position += (Vector2.RIGHT*speed).rotated(rotation) * delta   
+			#look_at(player_position)
 	if vida <= 0:
 		var moeda = coin.instantiate()
 		moeda.global_position = global_position
 		get_tree().get_root().add_child(moeda)
 		Global.xp += randf_range(1,10)
 		queue_free()
+		Global.inimigos -= 1
 		
 	
 func _on_timer_timeout():
 	queue_free()
+	Global.inimigos -= 1
 
 
 func _on_body_entered(body):
@@ -51,6 +62,7 @@ func _on_body_entered(body):
 			$Label.text = str(Global.dano_inimigo)
 		if body.is_in_group("player"):
 			queue_free()
+			Global.inimigos -= 1
 
 
 func _on_area_entered(area):

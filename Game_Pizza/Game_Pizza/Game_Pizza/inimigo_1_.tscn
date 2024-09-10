@@ -94,7 +94,7 @@ animations = [{
 size = Vector2(24, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly2e8"]
-size = Vector2(22, 20)
+size = Vector2(33, 31)
 
 [node name="inimigo1_" type="Area2D" groups=["inimigo"]]
 collision_layer = 4
@@ -137,10 +137,11 @@ wait_time = 0.8
 autostart = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["inimigo"]]
-collision_layer = 4
-collision_mask = 5
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_ly2e8")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -11,9 +11,11 @@ func _ready():
 	Global.nivel = 0
 	Global.arma_giro_nivel = 0
 	Global.tempo_tiro = 0.5
+	
+	
 
 func _process(delta):
 	pass
 		
 		
-		
+

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://player.gd" id="1_njpua"]
 [ext_resource type="Texture2D" uid="uid://dn446oacy4mhg" path="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="2_ugmtb"]
 [ext_resource type="Texture2D" uid="uid://c3kpuujy58rbe" path="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Walk.png" id="3_h6tri"]
-[ext_resource type="Texture2D" uid="uid://c4dvdxhvadhh0" path="res://icon.svg" id="4_2eniq"]
+[ext_resource type="Texture2D" uid="uid://do2vgwt6ghf8j" path="res://M92.png" id="4_72hx0"]
 [ext_resource type="Script" path="res://arma_fixa.gd" id="5_sjajb"]
 [ext_resource type="PackedScene" uid="uid://8yvh3l1g5677" path="res://arma_giro.tscn" id="11_gks4s"]
 
@@ -154,14 +154,12 @@ frame_progress = 0.74279
 
 [node name="arma1" type="Sprite2D" parent="."]
 position = Vector2(2, 0)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_2eniq")
-offset = Vector2(200, 0)
-flip_h = true
+texture = ExtResource("4_72hx0")
+offset = Vector2(20, 0)
 script = ExtResource("5_sjajb")
 
 [node name="Marker2D" type="Marker2D" parent="arma1"]
-position = Vector2(250, -10)
+position = Vector2(26, -3)
 
 [node name="Timer" type="Timer" parent="arma1"]
 wait_time = 0.7

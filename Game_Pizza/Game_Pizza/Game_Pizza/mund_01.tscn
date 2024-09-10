@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ducx2jrx8bbot"]
+[gd_scene load_steps=7 format=3 uid="uid://ducx2jrx8bbot"]
 
 [ext_resource type="Script" path="res://mund_01.gd" id="1_qiie2"]
 [ext_resource type="PackedScene" uid="uid://cyod0hegwbhf5" path="res://player.tscn" id="2_4xj8o"]
 [ext_resource type="Texture2D" uid="uid://0ps1tmnbcrcp" path="res://32rogues/DwarvenDelve/DwarvenDelve/Background/CaveTilemap.png" id="2_61s8f"]
-[ext_resource type="PackedScene" uid="uid://mysjh2n183n4" path="res://inimigo_1_.tscn" id="5_atg47"]
 [ext_resource type="PackedScene" uid="uid://j18gmax35lve" path="res://hud.tscn" id="9_3rny1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dqhu"]
@@ -246,24 +245,3 @@ layer_1/tile_data = PackedInt32Array(262151, 655361, 3, 262152, 655361, 3, 26215
 position = Vector2(622, 333)
 
 [node name="HUD" parent="." instance=ExtResource("9_3rny1")]
-
-[node name="inimigo1_" parent="." instance=ExtResource("5_atg47")]
-position = Vector2(332, 365)
-
-[node name="inimigo1_2" parent="." instance=ExtResource("5_atg47")]
-position = Vector2(928, 232)
-
-[node name="inimigo1_3" parent="." instance=ExtResource("5_atg47")]
-position = Vector2(714, 510)
-
-[node name="inimigo1_4" parent="." instance=ExtResource("5_atg47")]
-position = Vector2(370, 154)
-
-[node name="inimigo1_5" parent="." instance=ExtResource("5_atg47")]
-position = Vector2(1159, 465)
-
-[node name="inimigo1_6" parent="." instance=ExtResource("5_atg47")]
-position = Vector2(1101, 96)
-
-[node name="inimigo1_7" parent="." instance=ExtResource("5_atg47")]
-position = Vector2(514, 111)
