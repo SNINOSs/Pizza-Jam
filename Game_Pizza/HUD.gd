@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var timer_inicio = 10
+var timer_inicio = 20
 var timer = 0
 var inimigo_asset = preload("res://inimigo_1_.tscn")
 func _ready():

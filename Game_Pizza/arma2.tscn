@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://da0dqkpl0vmmq"]
+
+[ext_resource type="Script" path="res://ex.gd" id="1_3a0y8"]
+[ext_resource type="Texture2D" uid="uid://5dwfrfmltgsp" path="res://MP5.png" id="1_h2m2f"]
+
+[node name="arma2" type="Sprite2D"]
+texture = ExtResource("1_h2m2f")
+script = ExtResource("1_3a0y8")
+
+[node name="Marker2D" type="Marker2D" parent="."]

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://chybkk5llk70l" path="res://PistolAmmoSmall.png" id="2_fswwk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bca88"]
-radius = 7.0
-height = 24.0
+radius = 4.0
+height = 16.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qngd4"]
 animations = [{
@@ -29,7 +29,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bca88")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qngd4")
 animation = &"idle"
 autoplay = "idle"

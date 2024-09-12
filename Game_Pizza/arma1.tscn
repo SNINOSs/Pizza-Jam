@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bab7canlppevl"]
+
+[ext_resource type="Texture2D" uid="uid://do2vgwt6ghf8j" path="res://M92.png" id="1_q3xcb"]
+[ext_resource type="Script" path="res://arma_fixa.gd" id="2_m6qmh"]
+
+[node name="arma1" type="Sprite2D"]
+position = Vector2(21, 0)
+texture = ExtResource("1_q3xcb")
+script = ExtResource("2_m6qmh")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(6, -3)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
